@@ -1,26 +1,2265 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: #f5fbff;
+  color: #102a43;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 650px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 60px;
+
+  padding: 70px 8%;
+
+  background: linear-gradient(
+    135deg,
+    #eaf8ff,
+    #ffffff
+  );
+}
+
+.hero-image {
+  width: fit-content;
+  max-width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 80, 140, 0.2);
+}
+
+.hero-image img {
+  width: 280px;
+  height: auto;
+
+  display: block;
+
+  border-radius: 30px;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content .welcome {
+  font-size: 22px;
+  font-weight: bold;
+
+  color: #1976d2;
+}
+
+.hero-content h1 {
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1.1;
+
+  margin: 10px 0 20px;
+
+  color: #e91e63;
+
+  text-shadow:
+    3px 3px 0 #102a43;
+}
+
+.hero-content h2 {
+  font-size: 28px;
+
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+.hero-content button {
+  margin-top: 20px;
+
+  padding: 15px 25px;
+
+  border-radius: 12px;
+
+  background: #0969da;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.hero-content button:hover {
+  transform: translateY(-3px);
+
+  background: #0757b5;
+}
+
+/* =========================
+   BREAKING NEWS
+========================= */
+
+.breaking-news {
+  width: 90%;
+  max-width: 1300px;
+
+  margin: 30px auto;
+
+  padding: 14px 35px;
+
+  border-radius: 10px;
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 25px;
+
+  align-items: center;
+
+  background: #092f4f;
+
+  color: white;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.news-text span {
+  display: inline-block;
+
+  padding: 4px 10px;
+
+  border-radius: 5px;
+
+  background: #ff176b;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.news-text h2 {
+  font-size: clamp(28px, 2.8vw, 38px);
+
+  line-height: 1.1;
+
+  color: #ffffff;
+
+  margin: 6px 0 3px;
+
+  font-weight: 900;
+
+  text-shadow:
+    2px 2px 0 #061f33;
+}
+
+.news-text h3 {
+  font-size: 18px;
+
+  line-height: 1.2;
+
+  color: #ffd43b;
+
+  margin: 0 0 6px;
+
+  font-weight: 900;
+}
+
+.news-text p {
+  font-size: 14px;
+
+  line-height: 1.3;
+
+  margin: 3px 0;
+}
+
+.news-image {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.news-image img {
+  width: 160px;
+
+  height: auto;
+
+  display: block;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   MEDICINES
+========================= */
+
+.medicines {
+  padding: 75px 7%;
+
+  text-align: center;
+}
+
+.medicines > h2 {
+  font-size: clamp(36px, 4vw, 48px);
+
+  margin: 0 0 10px;
+
+  color: #092f4f;
+
+  font-weight: 900;
+}
+
+.medicine-subtitle {
+  margin: 0 auto 45px;
+
+  color: #607d8b;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.medicine-grid {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.medicine-card {
+  position: relative;
+
+  padding: 32px 25px 25px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  border: 1px solid #dceef8;
+
+  box-shadow:
+    0 10px 30px rgba(0, 80, 140, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.medicine-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 80, 140, 0.16);
+}
+
+.medicine-card .emoji {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 22px;
+
+  background: #eaf4ff;
+
+  font-size: 42px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 80, 140, 0.08);
+}
+
+.medicine-card h3 {
+  margin: 0 0 12px;
+
+  font-size: 21px;
+
+  line-height: 1.3;
+
+  color: #0757b5;
+
+  font-weight: 900;
+}
+
+.medicine-card p {
+  margin: 0 0 22px;
+
+  color: #52606d;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  min-height: 72px;
+}
+
+/* =========================
+   MEDICINE BUTTON
+========================= */
+
+.medicine-button {
+  padding: 11px 20px;
+
+  border-radius: 12px;
+
+  background: #eaf4ff;
+
+  color: #0757b5;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  transition: 0.2s;
+}
+
+.medicine-button:hover {
+  background: #0969da;
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MEDICINE WARNING
+========================= */
+
+.medicine-warning {
+  margin-top: 18px;
+
+  padding: 16px;
+
+  border-radius: 15px;
+
+  background: #fff4d6;
+
+  border: 2px dashed #ffd43b;
+
+  text-align: left;
+
+  animation:
+    medicinePop 0.25s ease;
+}
+
+.medicine-warning strong {
+  color: #d97706;
+
+  font-size: 14px;
+}
+
+.medicine-warning p {
+  margin: 8px 0;
+
+  min-height: auto;
+
+  color: #5f3700;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.medicine-warning small {
+  color: #795548;
+
+  font-size: 11px;
+}
+
+@keyframes medicinePop {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+/* =========================
+   DOCTOR RITU
+========================= */
+
+.doctor {
+  position: relative;
+
+  width: 86%;
+
+  max-width: 1100px;
+
+  margin: 30px auto 70px;
+
+  padding: 45px;
+
+  border-radius: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e9f8ef,
+      #f5fff9
+    );
+
+  border: 1px solid #cdebd8;
+
+  box-shadow:
+    0 18px 45px rgba(0, 100, 60, 0.12);
+
+  overflow: hidden;
+}
+
+/* Doctor emoji */
+
+.doctor-badge {
+  width: 110px;
+  height: 110px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: white;
+
+  font-size: 58px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 80, 60, 0.12);
+}
+
+/* Doctor info */
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-label {
+  margin: 0 0 8px;
+
+  color: #198754;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.doctor-info h2 {
+  margin: 0 0 12px;
+
+  color: #075c3a;
+
+  font-size: clamp(32px, 4vw, 46px);
+
+  line-height: 1.1;
+
+  font-weight: 900;
+}
+
+.doctor-description {
+  margin: 0;
+
+  max-width: 650px;
+
+  color: #45635a;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+}
+
+/* Doctor stats */
+
+.doctor-stats {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.doctor-stats div {
+  min-width: 125px;
+
+  padding: 14px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  border: 1px solid #d5eee0;
+
+  text-align: center;
+}
+
+.doctor-stats strong {
+  display: block;
+
+  color: #198754;
+
+  font-size: 24px;
+
+  font-weight: 900;
+}
+
+.doctor-stats span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #607d70;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+/* Prescription button */
+
+.doctor-button {
+  margin-top: 25px;
+
+  padding: 13px 22px;
+
+  border-radius: 12px;
+
+  background: #198754;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  transition: 0.2s;
+}
+
+.doctor-button:hover {
+  background: #146c43;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(25, 135, 84, 0.25);
+}
+
+/* Approval stamp */
+
+.doctor-stamp {
+  width: 115px;
+  height: 115px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 3px dashed #198754;
+
+  border-radius: 50%;
+
+  color: #198754;
+
+  transform: rotate(-12deg);
+
+  opacity: 0.85;
+}
+
+.doctor-stamp span:first-child {
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+.doctor-stamp small {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.doctor-stamp span:last-child {
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+/* =========================
+   SPECIAL NOTICE
+========================= */
+
+.notice {
+  position: relative;
+
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 35px 40px;
+
+  border: 2px dashed #70a9d1;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #092f4f,
+      #061f33
+    );
+
+  color: white;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+}
+
+/* Yellow top line */
+
+.notice::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: #ffd43b;
+}
+
+/* Header */
+
+.notice-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.notice-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #102a43;
+
+  border: 1px solid #315b78;
+
+  font-size: 36px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.notice-label {
+  margin: 0 0 4px;
+
+  color: #ffd43b;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.notice h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(30px, 4vw, 42px);
+
+  font-weight: 900;
+}
+
+/* Content */
+
+.notice-content p {
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #d8e9f5;
+}
+
+.notice-content strong {
+  color: #ffd43b;
+
+  font-weight: 900;
+}
+
+.danger-text {
+  color: #ff8fab !important;
+
+  font-weight: 900;
+}
+
+/* Warning box */
+
+.notice-warning {
+  margin-top: 25px;
+
+  padding: 18px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 212, 59, 0.08);
+
+  border: 1px solid rgba(255, 212, 59, 0.35);
+}
+
+.notice-warning > span {
+  font-size: 30px;
+
+  flex-shrink: 0;
+}
+
+.notice-warning p {
+  margin: 0;
+
+  color: #fff0b3;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+/* Funny stamp */
+
+.notice-stamp {
+  position: absolute;
+
+  right: 35px;
+  top: 35px;
+
+  width: 95px;
+  height: 95px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 3px dashed #ff176b;
+
+  border-radius: 50%;
+
+  color: #ff5c91;
+
+  transform: rotate(12deg);
+
+  opacity: 0.85;
+}
+
+.notice-stamp span {
+  font-size: 22px;
+
+  font-weight: 900;
+}
+
+.notice-stamp small {
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 60px 0 20px;
+
+  background: #061f33;
+}
+
+.copyright {
+  text-align: center;
+
+  color: #9fb3c8;
+
+  margin-top: 35px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .hero,
+  .breaking-news {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    margin: 0 auto;
+  }
+
+  .medicine-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .doctor {
+    width: 90%;
+
+    flex-wrap: wrap;
+  }
+
+  .doctor-stamp {
+    margin-left: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 35px 20px;
+  }
+
+  .hero-image img {
+    width: 240px;
+  }
+
+  .hero-content h1 {
+    font-size: 43px;
+  }
+
+  /* Breaking News */
+
+  .breaking-news {
+    width: auto;
+
+    margin: 20px 15px;
+
+    padding: 15px;
+  }
+
+  .news-image img {
+    width: 180px;
+  }
+
+  /* Medicines */
+
+  .medicines {
+    padding: 55px 20px;
+  }
+
+  .medicine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .medicine-card {
+    padding: 28px 22px;
+  }
+
+  /* Doctor */
+
+  .doctor {
+    width: 92%;
+
+    margin: 25px auto 50px;
+
+    padding: 30px 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .doctor-badge {
+    width: 85px;
+    height: 85px;
+
+    font-size: 45px;
+  }
+
+  .doctor-stats {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .doctor-stats div {
+    flex: 1;
+
+    min-width: 90px;
+  }
+
+  .doctor-stamp {
+    position: absolute;
+
+    top: 25px;
+    right: 20px;
+
+    width: 85px;
+    height: 85px;
+  }
+
+  .doctor-stamp span:first-child {
+    font-size: 15px;
+  }
+
+  /* Notice */
+
+  .notice {
+    width: auto;
+
+    margin: 0 15px;
+
+    padding: 25px;
+  }
+
+  .notice h2 {
+    font-size: 24px;
+  }
+
+  .notice p {
+    font-size: 15px;
+  }
+}
+/* =========================
+   STEP 7
+   MOBILE RESPONSIVE POLISH
+========================= */
+
+/* Prevent horizontal overflow */
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================
+   TABLET POLISH
+========================= */
+
+@media (max-width: 900px) {
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 55px 6%;
+
+    text-align: center;
+  }
+
+  .hero-image {
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    max-width: 750px;
+  }
+
+  /* BREAKING NEWS */
+
+  .breaking-news {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 20px;
+
+    padding: 25px;
+  }
+
+  .news-image {
+    order: -1;
+  }
+
+  .news-image img {
+    width: 180px;
+  }
+
+  /* MEDICINES */
+
+  .medicine-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+  }
+
+  /* DOCTOR */
+
+  .doctor {
+    width: 90%;
+
+    padding: 35px;
+
+    flex-wrap: wrap;
+  }
+
+  .doctor-info {
+    min-width: 0;
+  }
+
+  .doctor-stats {
+    flex-wrap: wrap;
+  }
+
+  .doctor-stats div {
+    flex: 1;
+  }
+
+  /* NOTICE */
+
+  .notice {
+    width: 90%;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  /* GENERAL */
+
+  body {
+    font-size: 15px;
+  }
+
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 40px 18px 50px;
+
+    gap: 30px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+
+    border-radius: 22px;
+  }
+
+  .hero-image img {
+    width: min(240px, 75vw);
+
+    border-radius: 22px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-content .welcome {
+    font-size: 18px;
+  }
+
+  .hero-content h1 {
+    width: 100%;
+
+    margin: 8px 0 15px;
+
+    font-size: clamp(34px, 10vw, 43px);
+
+    line-height: 1.15;
+  }
+
+  .hero-content h2 {
+    margin: 0 0 12px;
+
+    font-size: 22px;
+
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    margin: 8px 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+  .hero-content button {
+    width: auto;
+
+    padding: 13px 20px;
+
+    font-size: 14px;
+  }
+
+
+  /* =========================
+     BREAKING NEWS
+  ========================= */
+
+  .breaking-news {
+    width: calc(100% - 30px);
+
+    margin: 20px auto;
+
+    padding: 22px 18px;
+
+    border-radius: 18px;
+
+    gap: 18px;
+
+    text-align: center;
+  }
+
+  .news-text span {
+    font-size: 11px;
+
+    padding: 5px 9px;
+  }
+
+  .news-text h2 {
+    margin: 10px 0 5px;
+
+    font-size: clamp(25px, 8vw, 34px);
+
+    line-height: 1.2;
+  }
+
+  .news-text h3 {
+    font-size: 17px;
+
+    line-height: 1.35;
+  }
+
+  .news-text p {
+    font-size: 13px;
+
+    line-height: 1.5;
+  }
+
+  .news-image {
+    order: -1;
+  }
+
+  .news-image img {
+    width: min(180px, 60vw);
+
+    border-radius: 12px;
+  }
+
+
+  /* =========================
+     MEDICINES
+  ========================= */
+
+  .medicines {
+    width: 100%;
+
+    padding: 50px 18px;
+  }
+
+  .medicines > h2 {
+    font-size: 32px;
+
+    line-height: 1.2;
+  }
+
+  .medicine-subtitle {
+    max-width: 350px;
+
+    margin-bottom: 30px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+  .medicine-grid {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .medicine-card {
+    width: 100%;
+
+    padding: 26px 20px 22px;
+
+    border-radius: 20px;
+  }
+
+  .medicine-card .emoji {
+    width: 65px;
+    height: 65px;
+
+    margin-bottom: 15px;
+
+    font-size: 36px;
+
+    border-radius: 18px;
+  }
+
+  .medicine-card h3 {
+    font-size: 20px;
+  }
+
+  .medicine-card p {
+    min-height: auto;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+  }
+
+  .medicine-button {
+    padding: 10px 17px;
+
+    font-size: 13px;
+  }
+
+  .medicine-warning {
+    padding: 14px;
+
+    margin-top: 15px;
+  }
+
+  .medicine-warning p {
+    font-size: 13px;
+  }
+
+
+  /* =========================
+     DOCTOR RITU
+  ========================= */
+
+  .doctor {
+    width: calc(100% - 30px);
+
+    margin: 20px auto 45px;
+
+    padding: 28px 20px;
+
+    border-radius: 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .doctor-badge {
+    width: 75px;
+    height: 75px;
+
+    font-size: 40px;
+  }
+
+  .doctor-info {
+    width: 100%;
+  }
+
+  .doctor-label {
+    font-size: 10px;
+
+    letter-spacing: 1px;
+  }
+
+  .doctor-info h2 {
+    padding-right: 5px;
+
+    font-size: 30px;
+
+    line-height: 1.15;
+  }
+
+  .doctor-description {
+    font-size: 14px;
+
+    line-height: 1.55;
+  }
+
+  .doctor-stats {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 20px;
+  }
+
+  .doctor-stats div {
+    min-width: 0;
+
+    padding: 10px 5px;
+
+    border-radius: 12px;
+  }
+
+  .doctor-stats strong {
+    font-size: 20px;
+  }
+
+  .doctor-stats span {
+    font-size: 9px;
+
+    line-height: 1.2;
+  }
+
+  .doctor-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    font-size: 14px;
+  }
+
+  .doctor-stamp {
+    position: absolute;
+
+    top: 18px;
+
+    right: 15px;
+
+    width: 70px;
+    height: 70px;
+  }
+
+  .doctor-stamp span:first-child {
+    font-size: 14px;
+  }
+
+  .doctor-stamp small {
+    font-size: 7px;
+  }
+
+  .doctor-stamp span:last-child {
+    font-size: 14px;
+  }
+
+
+  /* =========================
+     SPECIAL NOTICE
+  ========================= */
+
+  .notice {
+    width: calc(100% - 30px);
+
+    margin: 0 auto;
+
+    padding: 25px 18px;
+
+    border-radius: 20px;
+  }
+
+  .notice-top {
+    gap: 12px;
+
+    padding-right: 65px;
+
+    margin-bottom: 20px;
+  }
+
+  .notice-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    font-size: 28px;
+
+    border-radius: 15px;
+  }
+
+  .notice-label {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+  }
+
+  .notice h2 {
+    font-size: 27px;
+  }
+
+  .notice-content p {
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  .notice-warning {
+    padding: 14px;
+
+    gap: 10px;
+
+    align-items: flex-start;
+  }
+
+  .notice-warning > span {
+    font-size: 24px;
+  }
+
+  .notice-warning p {
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+  .notice-stamp {
+    top: 18px;
+
+    right: 15px;
+
+    width: 65px;
+    height: 65px;
+  }
+
+  .notice-stamp span {
+    font-size: 14px;
+  }
+
+  .notice-stamp small {
+    font-size: 6px;
+  }
+
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  footer {
+    padding: 45px 0 18px;
+  }
+
+  .copyright {
+    padding: 0 20px;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hero-image img {
+    width: 210px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content h2 {
+    font-size: 19px;
+  }
+
+  .medicine-card {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .doctor-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-stats div {
+    width: 100%;
+  }
+
+  .doctor-stamp {
+    width: 60px;
+    height: 60px;
+  }
+
+  .notice-top {
+    padding-right: 55px;
+  }
+}
+/* =========================================================
+   STEP 8 — ANIMATIONS + FINAL PREMIUM LOOK
+========================================================= */
+
+
+/* =========================
+   GLOBAL SMOOTHNESS
+========================= */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.medicine-card,
+.hero-image,
+.news-image img,
+.doctor,
+.notice {
+  will-change: transform;
+}
+
+
+/* =========================
+   HERO PREMIUM EFFECT
+========================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft background glow */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  top: -120px;
+  right: -100px;
+
+  background: rgba(25, 118, 210, 0.08);
+
+  border-radius: 50%;
+
+  filter: blur(10px);
+
+  animation: heroGlow 6s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  bottom: -120px;
+  left: -80px;
+
+  background: rgba(233, 30, 99, 0.06);
+
+  border-radius: 50%;
+
+  animation: heroGlow 7s ease-in-out infinite alternate-reverse;
+}
+
+.hero-image,
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+  animation: heroImageEnter 0.9s ease-out both;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: translateY(-8px) scale(1.015);
+
+  box-shadow:
+    0 30px 70px rgba(0, 80, 140, 0.28);
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.hero-content {
+  animation: heroTextEnter 0.9s ease-out 0.15s both;
+}
+
+.hero-content .welcome {
+  animation: fadeUp 0.7s ease-out 0.2s both;
+}
+
+.hero-content h1 {
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+
+.hero-content h2 {
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+
+.hero-content > p:not(.welcome) {
+  animation: fadeUp 0.8s ease-out 0.5s both;
+}
+
+.hero-content button {
+  animation: fadeUp 0.8s ease-out 0.6s both;
+}
+
+
+/* =========================
+   BUTTON PREMIUM EFFECT
+========================= */
+
+.hero-content button,
+.doctor-button,
+.doctor button {
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(9, 105, 218, 0.25);
+}
+
+.hero-content button::before,
+.doctor-button::before,
+.doctor button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.5s ease;
+}
+
+.hero-content button:hover::before,
+.doctor-button:hover::before,
+.doctor button:hover::before {
+  left: 130%;
+}
+
+.hero-content button:active,
+.doctor-button:active,
+.doctor button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   BREAKING NEWS
+========================= */
+
+.breaking-news {
+  position: relative;
+
+  overflow: hidden;
+
+  animation: fadeUp 0.8s ease-out both;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.breaking-news:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.22);
+}
+
+.news-text span {
+  animation: newsPulse 2s ease-in-out infinite;
+}
+
+.news-image img {
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.news-image img:hover {
+  transform: scale(1.05) rotate(1deg);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   MEDICINE SECTION
+========================= */
+
+.medicines > h2 {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.medicine-subtitle {
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+
+
+/* Medicine cards */
+
+.medicine-card {
+  animation: cardEnter 0.7s ease-out both;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Staggered animation */
+
+.medicine-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.medicine-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.medicine-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.medicine-card:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.medicine-card:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.medicine-card:nth-child(6) {
+  animation-delay: 0.40s;
+}
+
+
+/* Premium hover */
+
+.medicine-card:hover {
+  transform: translateY(-12px);
+
+  border-color: #b8ddf5;
+
+  box-shadow:
+    0 25px 55px rgba(0, 80, 140, 0.18);
+}
+
+
+/* Emoji floating */
+
+.medicine-card .emoji {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.medicine-card:hover .emoji {
+  transform:
+    translateY(-5px)
+    rotate(-4deg)
+    scale(1.06);
+
+  box-shadow:
+    0 12px 25px rgba(0, 80, 140, 0.14);
+}
+
+
+/* Medicine button */
+
+.medicine-button {
+  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.medicine-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 7px 18px rgba(9, 105, 218, 0.2);
+}
+
+.medicine-button:active {
+  transform: scale(0.95);
+}
+
+
+/* Warning animation */
+
+.medicine-warning {
+  animation:
+    medicineWarningEnter
+    0.35s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    both;
+}
+
+
+/* =========================
+   DOCTOR RITU
+========================= */
+
+.doctor {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.doctor:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 25px 55px rgba(0, 100, 70, 0.16);
+}
+
+.doctor-badge {
+  transition:
+    transform 0.4s ease;
+}
+
+.doctor:hover .doctor-badge {
+  transform:
+    rotate(-8deg)
+    scale(1.08);
+}
+
+.doctor-stats div {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.doctor-stats div:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.doctor-stamp {
+  animation:
+    stampFloat
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================
+   SPECIAL NOTICE
+========================= */
+
+.notice {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.notice:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.25);
+}
+
+.notice-icon {
+  transition:
+    transform 0.4s ease;
+}
+
+.notice:hover .notice-icon {
+  transform:
+    rotate(-8deg)
+    scale(1.08);
+}
+
+.notice-stamp {
+  animation:
+    noticeStamp 4s ease-in-out infinite;
+}
+
+.notice-warning {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.notice-warning:hover {
+  transform: translateX(5px);
+
+  background: rgba(255, 212, 59, 0.13);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  position: relative;
+}
+
+.copyright {
+  transition:
+    opacity 0.3s ease;
+}
+
+.copyright:hover {
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+
+/* Hero entrance */
+
+@keyframes heroImageEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-40px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+
+@keyframes heroTextEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+/* Generic fade */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* Medicine cards */
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* Warning */
+
+@keyframes medicineWarningEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-8px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* Hero glow */
+
+@keyframes heroGlow {
+  from {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate(30px, 20px)
+      scale(1.15);
+  }
+}
+
+
+/* Breaking News */
+
+@keyframes newsPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+
+/* Doctor stamp */
+
+@keyframes stampFloat {
+  0%,
+  100% {
+    transform:
+      rotate(10deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      rotate(14deg)
+      translateY(-5px);
+  }
+}
+
+
+/* Notice stamp */
+
+@keyframes noticeStamp {
+  0%,
+  100% {
+    transform:
+      rotate(12deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      rotate(16deg)
+      scale(1.05);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
 }
