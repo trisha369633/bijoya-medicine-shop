@@ -12,7 +12,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-image">
           <img
-            src="/images/bijoya.jpeg"
+            src="/bijoya-medicine-shop/images/bijoya.jpeg"
             alt="Bijoya"
             style={{
               width: "280px",
@@ -63,7 +63,7 @@ export default function Home() {
 
         <div className="news-image">
           <img
-            src="/images/blue-whale.jpeg"
+           src="/bijoya-medicine-shop/images/blue-whale.jpeg"
             alt="Blue Whale Discovery"
           />
         </div>
